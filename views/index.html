@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Scripts -->
+    <script src="../models/car.js"></script>
+    <script src="../models/wheel.js"></script>
+    <script src="../controllers/controller.js"></script>
+    <title>Ejercicio vehículos</title>
+    <!--Styles-->
+    <style>
+        #boxResult {
+            border: 1px solid black;
+            border-radius: 4px;
+            width: auto;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        span {
+            font-weight: bold;
+        }
+
+        .carPrint p {
+            display: inline-block;
+        }
+
+        .wheelsPrint p {
+            display: inline-block;
+        }
+
+    
+    </style>
+
+</head>
+
+<body>
+    <div class="container text-center">
+        <h1>Ejercicio Vehículos</h1>
+    </div>
+
+    <!--Create Car-->
+    <div class="container">
+        <form>
+            <div class="form-group row">
+                <div class="col">
+                    <label for="plate">Matrícula</label>
+                    <input type="text" class="form-control" id="inputPlate">
+                    <div class="invalid-feedback" id="errorPlate"></div>
+
+                </div>
+                <div class="col">
+                    <label for="brand">Marca</label>
+                    <input type="text" class="form-control" id="inputBrand">
+                </div>
+                <div class="col">
+                    <label for="color">Color</label>
+                    <input type="text" class="form-control" id="inputColor">
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary text-center" onclick="createCar()">Crear coche</button>
+        </form>
+    </div>
+<br>
+    <!--Add wheels-->
+    <div class="container">
+        <form>
+            <div class="form-group row">
+                <div class="col">
+                    <label for="brand">Marca rueda 1</label>
+                    <input type="text" class="form-control" id="inputBrand1">
+                </div>
+                <div class="col">
+                    <label for="brand">Marca rueda 2</label>
+                    <input type="text" class="form-control" id="inputBrand2">
+                </div>
+                <div class="col">
+                    <label for="brand">Marca rueda 3</label>
+                    <input type="text" class="form-control" id="inputBrand3">
+                </div>
+                <div class="col">
+                    <label for="brand">Marca rueda 4</label>
+                    <input type="text" class="form-control" id="inputBrand4">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col">
+                    <label for="diameter">Diámetro rueda 1</label>
+                    <input type="text" class="form-control" id="inputDiameter1">
+                </div>
+                <div class="col">
+                    <label for="diameter">Diámetro rueda 2</label>
+                    <input type="text" class="form-control" id="inputDiameter2">
+                </div>
+                <div class="col">
+                    <label for="diameter">Diámetro rueda 3</label>
+                    <input type="text" class="form-control" id="inputDiameter3">
+                </div>
+                <div class="col">
+                    <label for="diameter">Diámetro rueda 4</label>
+                    <input type="text" class="form-control" id="inputDiameter4">
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary text-center" onclick="addWheels()">Añadir ruedas</button>
+        </form>
+    </div>
+
+    <!--Result-->
+    <div class="container" id='boxResult'>
+
+        <h4>Información del vehículo</h4>
+
+        <!--Row-->
+        <div class="row carPrint">
+            <div class="col">
+                <p id='pPlate'>
+                    Matrícula: <span></span>
+                </p>
+            </div>
+            <div class="col">
+
+                <p id='pBrand'>
+                    Marca: <span></span>
+                </p>
+            </div>
+
+            <div class="col">
+                <p id='pColor'>
+                    Color: <span></span>
+                </p>
+            </div>
+        </div>
+
+        <!--Row-->
+        <div class="row wheelsPrint">
+
+            <div class="col">
+                <h5>Rueda1</h5>
+                <p id='pBrand1'>
+                    Marca: <span></span>
+                </p><br>
+                <p id='pDiameter1'>
+                    Diámetro: <span></span>
+                </p>
+            </div>
+
+            <div class="col">
+                <h5>Rueda2</h5>
+                <p id='pBrand2'>
+                    Marca: <span></span>
+                </p><br>
+                <p id='pDiameter2'>
+                    Diámetro: <span></span>
+                </p>
+            </div>
+
+            <div class="col">
+                <h5>Rueda3</h5>
+                <p id='pBrand3'>
+                    Marca: <span></span>
+                </p><br>
+                <p id='pDiameter3'>
+                    Diámetro: <span></span>
+                </p>
+            </div>
+
+            <div class="col">
+                <h5>Rueda4</h5>
+                <p id='pBrand4'>
+                    Marca: <span></span>
+                </p><br>
+                <p id='pDiameter4'>
+                    Diámetro: <span></span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
