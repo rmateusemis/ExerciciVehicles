@@ -7,25 +7,22 @@ function createCar() {
   let brand = document.getElementById('inputBrand').value;
   let color = document.getElementById('inputColor').value;
 
-
-
   //Validate Plate 
   if (!regex.test(plate)) {
     alert("Introduce la matrícula correctamente");
   } else {
 
-  let myCar = new Car(plate, color, brand); // Car obj Instance
-  console.log(myCar);
+    let myCar = new Car(plate, color, brand); // Car obj Instance
+    console.log(myCar);
 
-  let pPlate = document.querySelector('#pPlate span');
-  let pBrand = document.querySelector('#pBrand span');
-  let pColor = document.querySelector('#pColor span');
+    let pPlate = document.querySelector('#pPlate span');
+    let pBrand = document.querySelector('#pBrand span');
+    let pColor = document.querySelector('#pColor span');
 
-  pPlate.innerHTML = plate;
-  pBrand.innerHTML = brand;
-  pColor.innerHTML = color;
-}
-
+    pPlate.innerHTML = myCar.plate;
+    pBrand.innerHTML = myCar.brand;
+    pColor.innerHTML = myCar.color;
+  }
 }
 
 function addWheels() {
@@ -44,56 +41,32 @@ function addWheels() {
     alert("Introduce un diámetro entre 0.4 y 2");
 
   } else {
-  //let myWheel = new Wheel(diameter, brand); //???
+    //let myWheel = new Wheel(diameter, brand); //??? 
 
-  // Print Brand
-  let pBrand1 = document.querySelector('#pBrand1 span');
-  let pBrand2 = document.querySelector('#pBrand2 span');
-  let pBrand3 = document.querySelector('#pBrand3 span');
-  let pBrand4 = document.querySelector('#pBrand4 span');
+    // Print Brand
+    let pBrand1 = document.querySelector('#pBrand1 span');
+    let pBrand2 = document.querySelector('#pBrand2 span');
+    let pBrand3 = document.querySelector('#pBrand3 span');
+    let pBrand4 = document.querySelector('#pBrand4 span');
 
-  pBrand1.innerHTML = brand1;
-  pBrand2.innerHTML = brand2;
-  pBrand3.innerHTML = brand3;
-  pBrand4.innerHTML = brand4;
+    pBrand1.innerHTML = brand1;
+    pBrand2.innerHTML = brand2;
+    pBrand3.innerHTML = brand3;
+    pBrand4.innerHTML = brand4;
 
-  // Print Diameter
-  let pDiameter1 = document.querySelector('#pDiameter1 span');
-  let pDiameter2 = document.querySelector('#pDiameter2 span');
-  let pDiameter3 = document.querySelector('#pDiameter3 span');
-  let pDiameter4 = document.querySelector('#pDiameter4 span');
+    // Print Diameter
+    let pDiameter1 = document.querySelector('#pDiameter1 span');
+    let pDiameter2 = document.querySelector('#pDiameter2 span');
+    let pDiameter3 = document.querySelector('#pDiameter3 span');
+    let pDiameter4 = document.querySelector('#pDiameter4 span');
 
-  pDiameter1.innerHTML = diameter1;
-  pDiameter2.innerHTML = diameter2;
-  pDiameter3.innerHTML = diameter3;
-  pDiameter4.innerHTML = diameter4;
+    pDiameter1.innerHTML = diameter1;
+    pDiameter2.innerHTML = diameter2;
+    pDiameter3.innerHTML = diameter3;
+    pDiameter4.innerHTML = diameter4;
 
   }
-
 }
-
-/*
-validateCar() {
-  const form = document.getElementById('myFormId');
-  form.classList.remove('is-invalid');
-  let plate = document.forms["myForm"]["inputPlate"];
-
-  if (!regex.test(plate)) {
-    alert("Introduce la matrícula correctamente");
-    plate.classList.add("is-invalid");
-    document.getElementById("errorPlate").textContent = "La matrúcla no es correcta";
-    return false;
-  }
-}
-
-if(form){
-form.addEventListener("blur", function( event ) {
-	if(event.target.value!='') event.target.classList.remove('is-invalid');
-	registerValidate();
-}, true);
-}
-*/
-
 
 
 /*

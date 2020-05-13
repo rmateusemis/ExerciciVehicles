@@ -15,9 +15,9 @@ function createCar() {
         var pPlate = document.querySelector('#pPlate span');
         var pBrand = document.querySelector('#pBrand span');
         var pColor = document.querySelector('#pColor span');
-        pPlate.innerHTML = plate;
-        pBrand.innerHTML = brand;
-        pColor.innerHTML = color;
+        pPlate.innerHTML = myCar.plate;
+        pBrand.innerHTML = myCar.brand;
+        pColor.innerHTML = myCar.color;
     }
 }
 function addWheels() {
@@ -34,7 +34,7 @@ function addWheels() {
         alert("Introduce un diámetro entre 0.4 y 2");
     }
     else {
-        //let myWheel = new Wheel(diameter, brand); //???
+        //let myWheel = new Wheel(diameter, brand); //??? 
         // Print Brand
         var pBrand1 = document.querySelector('#pBrand1 span');
         var pBrand2 = document.querySelector('#pBrand2 span');
@@ -55,27 +55,6 @@ function addWheels() {
         pDiameter4.innerHTML = diameter4;
     }
 }
-/*
-validateCar() {
-  const form = document.getElementById('myFormId');
-  form.classList.remove('is-invalid');
-  let plate = document.forms["myForm"]["inputPlate"];
-
-  if (!regex.test(plate)) {
-    alert("Introduce la matrícula correctamente");
-    plate.classList.add("is-invalid");
-    document.getElementById("errorPlate").textContent = "La matrúcla no es correcta";
-    return false;
-  }
-}
-
-if(form){
-form.addEventListener("blur", function( event ) {
-    if(event.target.value!='') event.target.classList.remove('is-invalid');
-    registerValidate();
-}, true);
-}
-*/
 /*
   let car=new Car(plate,color,brand);
   car.addWheel(new Wheel(2,"SEAT"));
