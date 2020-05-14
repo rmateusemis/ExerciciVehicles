@@ -6,8 +6,11 @@ function createCar() {
     var plate = document.getElementById('inputPlate').value;
     var brand = document.getElementById('inputBrand').value;
     var color = document.getElementById('inputColor').value;
-    //Validate Plate 
-    if (!regex.test(plate)) {
+    //Validate Car 
+    if (plate == '' || brand == '' || color == '') {
+        alert('Rellena todos lops campos');
+    }
+    else if (!regex.test(plate)) {
         alert("Introduce la matrícula correctamente (Ej:1111AAA)");
     }
     else {
@@ -26,9 +29,13 @@ function addWheels() {
   let brand = document.getElementById('inputBrand1').value;
   let diameter = parseFloat(document.getElementById('inputDiameter1').value);
 
-  // Validate diameters
-  if (diameter < 0.4 || diameter > 2 || isNaN(diameter)) {
+  // Validate Wheels
+  if (brand == '' || diameter == '') {
+    alert("Introduce la marca de la rueda");
+  
+  }else if (diameter < 0.4 || diameter > 2 || isNaN(diameter)) {
     alert("Introduce un diámetro entre 0.4 y 2");
+
   } else {
     let wheel = new Wheel(diameter, brand);
     console.log(wheel);
