@@ -1,5 +1,7 @@
 var box = document.querySelector('boxResult');
 
+var car: Car;
+
 var regex = /^[0-9]{4}[A-Z]{3}$/; // Validate Plate exp.
 
 function createCar() {
@@ -9,21 +11,45 @@ function createCar() {
 
   //Validate Plate 
   if (!regex.test(plate)) {
-    alert("Introduce la matrícula correctamente");
+    alert("Introduce la matrícula correctamente (Ej:1111AAA)");
   } else {
-
-    let myCar = new Car(plate, color, brand); // Car obj Instance
-    console.log(myCar);
+    car = new Car(plate, color, brand); // Car obj Instance
+    console.log(car);
 
     let pPlate = document.querySelector('#pPlate span');
     let pBrand = document.querySelector('#pBrand span');
     let pColor = document.querySelector('#pColor span');
 
-    pPlate.innerHTML = myCar.plate;
-    pBrand.innerHTML = myCar.brand;
-    pColor.innerHTML = myCar.color;
+    pPlate.innerHTML = car.plate;
+    pBrand.innerHTML = car.brand;
+    pColor.innerHTML = car.color;
   }
 }
+
+/*
+function addWheels() {
+  let brand = document.getElementById('inputBrand1').value;
+  let diameter = parseFloat(document.getElementById('inputDiameter1').value);
+
+  // Validate diameters
+  if (diameter < 0.4 || diameter > 2 || isNaN(diameter)) {
+    alert("Introduce un diámetro entre 0.4 y 2");
+  } else {
+    let wheel = new Wheel(diameter, brand);
+    console.log(wheel);
+    car.addWheel(wheel);
+
+    console.log(JSON.stringify(car.wheels));
+    console.log(car);
+
+    let pBrand = document.querySelector('#pBrand1 span');
+    let pDiameter = document.querySelector('#pDiameter1 span');
+
+    pBrand.innerHTML = wheel.brand;
+    pDiameter.innerHTML = wheel.diameter;
+  }
+}
+*/
 
 function addWheels() {
   let brand1 = document.getElementById('inputBrand1').value;
@@ -41,8 +67,6 @@ function addWheels() {
     alert("Introduce un diámetro entre 0.4 y 2");
 
   } else {
-    //let myWheel = new Wheel(diameter, brand); //??? 
-
     // Print Brand
     let pBrand1 = document.querySelector('#pBrand1 span');
     let pBrand2 = document.querySelector('#pBrand2 span');
@@ -68,12 +92,10 @@ function addWheels() {
   }
 }
 
-
 /*
   let car=new Car(plate,color,brand);
   car.addWheel(new Wheel(2,"SEAT"));
   document.body.innerText="CAR: PLATE: " + car.plate
   + " COLOR: " +car.color + " BRAND: " + brand
   + " WHEELS: " + JSON.stringify(car.wheels);
-}*/
-
+*/
