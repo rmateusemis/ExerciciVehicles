@@ -28,6 +28,40 @@ function createCar() {
     pColor.innerHTML = car.color;
   }
 }
+
+var wheels: any = [];
+function addWheels() {
+
+  while (wheels.length < 4) {
+    let brand = prompt("Introduce la marca de la rueda")
+    let diameter = parseFloat(prompt("Introduce el diámetro de la rueda (Entre 0'4 y 2)"));
+
+    if (brand == '' || diameter == '' || brand == null || diameter == null) {
+      alert("Rellena los dos campos");
+
+    } else if (diameter < 0.4 || diameter > 2 || isNaN(diameter)) {
+      alert("Introduce un diámetro entre 0.4 y 2");
+
+    } else {
+      let wheel = new Wheel(diameter, brand);
+      console.log(wheel);
+      wheels.push(wheel);
+      car.addWheel(wheel);
+    }
+  }
+
+  console.log(JSON.stringify(car.wheels));
+  console.log(car);
+
+  let pWheel = document.querySelector('#pWheel1 span');
+  //let pBrand = document.querySelector('#pBrand1 span');
+  //let pDiameter = document.querySelector('#pDiameter1 span');
+
+  for (let i = 0; i < wheels.length; i++) { //¿como imprimir cada iteracion en una columna?
+    pWheel.innerHTML += "Rueda " + [i+1] + "</br>" + "Marca: " + wheels[i].brand+ "</br>" + "Diámetro: " + wheels[i].diameter + "</br>" + "</br>";
+  }
+}
+
 /*
 function addWheels() {
   let brand = document.getElementById('inputBrand1').value;
@@ -36,7 +70,7 @@ function addWheels() {
   // Validate Wheels
   if (brand == '' || diameter == '') {
     alert("Introduce la marca de la rueda");
-  
+
   }else if (diameter < 0.4 || diameter > 2 || isNaN(diameter)) {
     alert("Introduce un diámetro entre 0.4 y 2");
 
@@ -57,6 +91,7 @@ function addWheels() {
 }
 */
 
+/*
 function addWheels() {
   let brand1 = document.getElementById('inputBrand1').value;
   let brand2 = document.getElementById('inputBrand2').value;
@@ -97,7 +132,7 @@ function addWheels() {
 
   }
 }
-
+*/
 /*
   let car=new Car(plate,color,brand);
   car.addWheel(new Wheel(2,"SEAT"));
