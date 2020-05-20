@@ -29,18 +29,31 @@ function createCar() {
 function addWheels() {
     var brand;
     var diameter;
+    var errorEmpty = false;
+    var errorDiameter = false;
+    // Validate Wheels
     for (var i = 1; i < 5; i++) {
         brand = document.getElementById('inputBrand' + i).value;
         diameter = parseFloat(document.getElementById('inputDiameter' + i).value);
-        // Validate Wheels - Necesito validar las 4 ruedas 1 a 1 y si hay 1 que no cumple no imprime nada 
-        if (brand == '' || diameter == '') {
-            alert("Rellena todos los campos");
+        if (brand == '' || diameter == '' || brand == null || diameter == null) {
+            errorEmpty = true;
         }
         else if (diameter < 0.4 || diameter > 2 || isNaN(diameter)) {
-            alert("Introduce un diámetro entre 0.4 y 2");
+            errorDiameter = true;
         }
-        else {
-            var wheel = new Wheel(diameter, brand); // Instance object
+    }
+    if (errorEmpty == true) {
+        alert("Rellena todos los campos");
+    }
+    if (errorDiameter == true) {
+        alert("Introduce un diámetro entre 0.4 y 2");
+    }
+    if (errorDiameter == false && errorEmpty == false) {
+        // Add Wheels
+        for (var i = 1; i < 5; i++) {
+            brand = document.getElementById('inputBrand' + i).value;
+            diameter = parseFloat(document.getElementById('inputDiameter' + i).value);
+            var wheel = new Wheel(diameter, brand);
             console.log(wheel);
             car.addWheel(wheel);
             console.log(JSON.stringify(car.wheels));

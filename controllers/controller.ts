@@ -30,35 +30,52 @@ function createCar() {
   }
 }
 
+
 // ADD WHEELS
 function addWheels() {
   let brand;
   let diameter;
+  let errorEmpty = false;
+  let errorDiameter = false;
+
+  // Validate Wheels
   for (let i = 1; i < 5; i++) {
     brand = <HTMLInputElement>document.getElementById('inputBrand' + i).value;
     diameter = <HTMLInputElement><unknown>parseFloat(document.getElementById('inputDiameter' + i).value);
 
-  // Validate Wheels - Necesito validar las 4 ruedas 1 a 1 y si hay 1 que no cumple no imprime nada 
-  if (brand == '' || diameter == '') {
+    if (brand == '' || diameter == '' || brand == null || diameter == null) {
+      errorEmpty = true;
+
+    } else if (diameter < 0.4 || diameter > 2 || isNaN(diameter)) {
+      errorDiameter = true;
+    }
+  }
+  if (errorEmpty == true) {
     alert("Rellena todos los campos");
-
-  }else if (diameter < 0.4 || diameter > 2 || isNaN(diameter)) {
+  }
+  if (errorDiameter == true) {
     alert("Introduce un diámetro entre 0.4 y 2");
+  }
+  if (errorDiameter == false && errorEmpty == false) {
 
-  } else {
-    let wheel = new Wheel(diameter, brand); // Instance object
-    console.log(wheel);
-    car.addWheel(wheel);
+    // Add Wheels
+    for (let i = 1; i < 5; i++) {
+      brand = <HTMLInputElement>document.getElementById('inputBrand' + i).value;
+      diameter = <HTMLInputElement><unknown>parseFloat(document.getElementById('inputDiameter' + i).value);
 
-    console.log(JSON.stringify(car.wheels));
-    console.log(car);
-      
+      let wheel = new Wheel(diameter, brand);
+      console.log(wheel);
+      car.addWheel(wheel);
+      console.log(JSON.stringify(car.wheels));
+      console.log(car);
+
       // Print Wheels
       let pBrand = document.querySelector('#pBrand' + i);
       let pDiameter = document.querySelector('#pDiameter' + i);
-  
-      pBrand.innerHTML = 'Marca: ' + '<b>'+wheel.brand+'<b>';
-      pDiameter.innerHTML = 'Diámetro : ' +'<b>'+wheel.diameter+'<b>';
-    } 
+
+      pBrand.innerHTML = 'Marca: ' + '<b>' + wheel.brand + '<b>';
+      pDiameter.innerHTML = 'Diámetro : ' + '<b>' + wheel.diameter + '<b>';
+    }
   }
 }
+
