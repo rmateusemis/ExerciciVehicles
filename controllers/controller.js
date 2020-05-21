@@ -1,11 +1,12 @@
 "use strict";
 var box = document.getElementById('boxResult');
 var addWheelsDiv = document.getElementById('addWheelsDiv');
-addWheelsDiv.style.display = 'none';
-boxResult.style.display = 'none';
+var addCarDiv = document.getElementById('addCarDiv');
 var car;
 var carExist = false;
 var regex = /^[0-9]{4}[A-Z]{3}$/; // Validate Plate exp.
+addWheelsDiv.style.display = 'none';
+boxResult.style.display = 'none';
 // CREATE CAR
 function createCar() {
     var plate = document.getElementById('inputPlate').value;
@@ -28,6 +29,7 @@ function createCar() {
         pPlate.innerHTML = car.plate;
         pBrand.innerHTML = car.brand;
         pColor.innerHTML = car.color;
+        addCarDiv.style.display = 'none';
         addWheelsDiv.style.display = 'block';
     }
 }

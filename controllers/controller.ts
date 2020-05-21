@@ -1,12 +1,12 @@
 var box = document.getElementById('boxResult');
 var addWheelsDiv = document.getElementById('addWheelsDiv');
+var addCarDiv = document.getElementById('addCarDiv');
 var car: Car;
 var carExist = false;
 var regex = /^[0-9]{4}[A-Z]{3}$/; // Validate Plate exp.
 
 addWheelsDiv.style.display = 'none';
 boxResult.style.display = 'none';
-
 
 // CREATE CAR
 function createCar() {
@@ -33,6 +33,7 @@ function createCar() {
     pBrand.innerHTML = car.brand;
     pColor.innerHTML = car.color;
 
+    addCarDiv.style.display = 'none';
     addWheelsDiv.style.display = 'block';
   }
 }
