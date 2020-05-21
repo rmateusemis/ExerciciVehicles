@@ -85,7 +85,9 @@ function addWheels() {
         pBrand.innerHTML = 'Marca: ' + '<b>' + wheel.brand + '<b>';
         pDiameter.innerHTML = 'Diámetro : ' + '<b>' + wheel.diameter + '<b>';
       }
+      
       boxResult.style.display = 'block';
+      addWheelsDiv.style.display = 'none';
     }
   } else {
     alert('Añade el cotxe antes que las ruedas');

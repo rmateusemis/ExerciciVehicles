@@ -74,6 +74,7 @@ function addWheels() {
                 pDiameter.innerHTML = 'Diámetro : ' + '<b>' + wheel.diameter + '<b>';
             }
             boxResult.style.display = 'block';
+            addWheelsDiv.style.display = 'none';
         }
     }
     else {
