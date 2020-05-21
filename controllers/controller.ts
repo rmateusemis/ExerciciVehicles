@@ -1,4 +1,10 @@
-var box = document.querySelector('#boxResult');
+var box = document.getElementById('boxResult');
+var addWheelsDiv = document.getElementById('addWheelsDiv');
+
+addWheelsDiv.style.display = 'none';
+boxResult.style.display = 'none';
+
+
 
 var car: Car;
 var carExist = false;
@@ -29,6 +35,9 @@ function createCar() {
     pPlate.innerHTML = car.plate;
     pBrand.innerHTML = car.brand;
     pColor.innerHTML = car.color;
+
+    addWheelsDiv.style.display = 'block';
+
   }
 }
 
@@ -79,6 +88,8 @@ function addWheels() {
         pBrand.innerHTML = 'Marca: ' + '<b>' + wheel.brand + '<b>';
         pDiameter.innerHTML = 'Diámetro : ' + '<b>' + wheel.diameter + '<b>';
       }
+      boxResult.style.display = 'block';
+
     }
   } else {
     alert('Añade el cotxe antes que las ruedas');

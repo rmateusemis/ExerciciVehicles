@@ -1,5 +1,8 @@
 "use strict";
-var box = document.querySelector('#boxResult');
+var box = document.getElementById('boxResult');
+var addWheelsDiv = document.getElementById('addWheelsDiv');
+addWheelsDiv.style.display = 'none';
+boxResult.style.display = 'none';
 var car;
 var carExist = false;
 var regex = /^[0-9]{4}[A-Z]{3}$/; // Validate Plate exp.
@@ -25,6 +28,7 @@ function createCar() {
         pPlate.innerHTML = car.plate;
         pBrand.innerHTML = car.brand;
         pColor.innerHTML = car.color;
+        addWheelsDiv.style.display = 'block';
     }
 }
 // ADD WHEELS
@@ -67,6 +71,7 @@ function addWheels() {
                 pBrand.innerHTML = 'Marca: ' + '<b>' + wheel.brand + '<b>';
                 pDiameter.innerHTML = 'Diámetro : ' + '<b>' + wheel.diameter + '<b>';
             }
+            boxResult.style.display = 'block';
         }
     }
     else {
